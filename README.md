@@ -1,1 +1,1 @@
-This repo contains files created to complete tasks in the ALX Shell-Basics project
+This repo contains directories created to complete projects in ALX System Engineering DevOps.
