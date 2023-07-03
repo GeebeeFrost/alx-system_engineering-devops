@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# This script formats the content of the /etc/passwd file and tells a story
+
+while read -r line
+do
+	USERNAME=$(echo "$line" | cut -f 1 -d ':')
+	PASSWORD=$(echo "$line" | cut -f 2 -d ':')
+	USER_ID=$(echo "$line" | cut -f 3 -d ':')
+	GROUP_ID=$(echo "$line" | cut -f 4 -d ':')
+	USER_ID_INFO=$(echo "$line" | cut -f 5 -d ':')
+	HOME_DIRECTORY=$(echo "$line" | cut -f 6 -d ':')
+	COMMAND=$(echo "$line" | cut -f 7 -d ':')
+	
+	echo -n "The user $USERNAME is part of the $GROUP_ID gang, "
+	echo -n "lives in $HOME_DIRECTORY and rides $COMMAND. "
+	echo -n "$USER_ID's place is protected by the passcode $PASSWORD, "
+	echo "more info about the user here: $USER_ID_INFO"
+done < "/etc/passwd"
