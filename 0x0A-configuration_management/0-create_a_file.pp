@@ -1,3 +1,4 @@
+# This manifest creates a file named school in /tmp
 $content = 'I love Puppet'
 
 file { 'school':
