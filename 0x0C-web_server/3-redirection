@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# configures Ubuntu machine with Nginx server so that /redirect_me is redirecting to another page
+
+sudo apt-get update
+sudo apt-get install -y nginx
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+red_str="server_name _;\n\n\tlocation \/redirect_me {\n\t\treturn 301 http:\/\/youtube.com;\n\t}"
+sudo sed -i "s/server_name _;/$red_str/" /etc/nginx/sites-available/default
+sudo service nginx restart
