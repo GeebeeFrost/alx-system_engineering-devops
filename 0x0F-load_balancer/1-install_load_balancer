@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# configures a new Ubuntu machine with HAproxy load balancer
+
+conf="\
+	frontend hypotherm-frontend
+		bind *:80
+		mode http
+		default_backend hypotherm-backend
+
+	backend hypotherm-backend
+		balance roundrobin
+		server 305567-web-01 54.174.176.249:80 check
+		server 305567-web-02 3.85.16.24:80 check
+"
+
+# update packages
+apt-get -y update
+
+# enable dedicated PPA for HAproxy
+apt-get install -y --no-install-recommends software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-2.8
+
+# install HAproxy
+apt-get install -y haproxy=2.8.\*
+
+# save backup copy of original config
+cp -a /etc/haproxy/haproxy.cfg{,.orig}
+
+# append new confug params to config file
+echo "$conf" >> /etc/haproxy/haproxy.cfg
+
+# restart haproxy service
+service haproxy restart
