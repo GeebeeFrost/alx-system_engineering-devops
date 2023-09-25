@@ -11,7 +11,7 @@ if __name__ == "__main__":
     todo_url = user_url + "/todos"
 
     res = requests.get(user_url)
-    emp_name = res.json().get("name")
+    emp_name = res.json().get("username")
 
     res = requests.get(todo_url)
     tasks = res.json()
