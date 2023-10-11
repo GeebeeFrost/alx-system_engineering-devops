@@ -3,3 +3,6 @@
 
 # Vi uility files
 *.swp
+
+# Python import folder
+__pycache__/
