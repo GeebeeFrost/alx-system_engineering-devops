@@ -37,6 +37,7 @@ frontend hypotherm-frontend
         mode http
         default_backend hypotherm-backend
 
+# HTTPS configs
 frontend hypotherm-frontend-https
         bind *:443 ssl crt /etc/haproxy/certs/www.hypotherm.tech.pem
         http-request set-header X-Forwarded-Proto https
