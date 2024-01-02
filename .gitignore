@@ -6,3 +6,6 @@
 
 # Python import folder
 __pycache__/
+
+# Output files
+*.csv
