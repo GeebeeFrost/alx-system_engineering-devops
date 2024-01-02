@@ -17,12 +17,16 @@ if __name__ == "__main__":
     task_res = requests.get(todo_url)
     tasks = task_res.json()
 
-    csv_tasks = []
-    for task in tasks:
-        csv_tasks.append(
-            [emp_id, emp_username, task.get("completed"), task.get("title")])
     csv_file = emp_id + ".csv"
+    # csv_tasks = []
+    # for task in tasks:
+    #     csv_tasks.append(
+    #         [emp_id, emp_username, task.get("completed"), task.get("title")])
 
     with open(csv_file, 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerows(csv_tasks)
+        # writer = csv.writer(f)
+        # writer.writerows(csv_tasks)
+        for task in tasks:
+            f.write('"{}","{}","{}","{}"\n'.format(
+                emp_id, emp_username,
+                task.get("completed"), task.get("title")))
