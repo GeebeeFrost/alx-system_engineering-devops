@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """This script returns information about an employee's TO-DO list progress
 and exports to a CSV file"""
-import csv
 import requests
 import sys
+# import csv
 
 if __name__ == "__main__":
     emp_id = sys.argv[1]
@@ -24,9 +24,11 @@ if __name__ == "__main__":
     #         [emp_id, emp_username, task.get("completed"), task.get("title")])
 
     with open(csv_file, 'w') as f:
-        # writer = csv.writer(f)
-        # writer.writerows(csv_tasks)
         for task in tasks:
             f.write('"{}","{}","{}","{}"\n'.format(
                 emp_id, emp_username,
                 task.get("completed"), task.get("title")))
+        # DOES NOT ADD QUOTES
+        # --------------------
+        # writer = csv.writer(f)
+        # writer.writerows(csv_tasks)
