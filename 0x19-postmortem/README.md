@@ -1,5 +1,7 @@
 # Postmortem
 
+![typos1](https://github.com/GeebeeFrost/alx-system_engineering-devops/assets/98333184/b62e36c9-1a35-442b-9ebd-b33c07603a86)
+
 ## Issue Summary
 
 There was an outage on an isolated Ubuntu 14.04 container running a WordPress application on an Apache web server for about 2 hours between 8:20am and 10:15am West African Time on Monday, 16th January, 2023. This caused users to recieve an error message of "500 - Internal Server Error" when trying to access the site. The cause of the issue was a typographical error in the WordPress configuration settings.
