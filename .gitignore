@@ -9,3 +9,6 @@ __pycache__/
 
 # Output files
 *.csv
+
+# Test files
+0x16-api_advanced/*main.py
